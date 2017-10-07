@@ -1,0 +1,4 @@
+export default {
+  CHANGE_LOCK_STATE: "CHANGE_LOCK_SATE",
+  SET_TOS_READ: "SET_TOS_READ",
+};
