@@ -1,25 +1,21 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-
-import configureStore from "state/configureStore";
 
 import HomeScreen from 'screens/HomeScreen';
 
-const store = configureStore();
 const AppNavigation = StackNavigator({
     Main: { 
       screen: HomeScreen,
       navigationOptions:({navigation}) => ({
-        title: "Welcome!"
+        title: "Did you lock your door?"
       })
     },
   },
   {
-    headerMode: "screen",
     navigationOptions: {
-      gesturesEnabled: false,
+      gesturesEnabled: false,  
+      headerRight: <Button title="Info" />,
     }
   }
 );
@@ -27,11 +23,10 @@ const AppNavigation = StackNavigator({
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
-        <View style={styles.container}>
-          <AppNavigation />
-        </View>
-      </Provider>
+      <View style={styles.container}>
+        <StatusBar hidden={true} animated={true} />
+        <AppNavigation />
+      </View>
     );
   }
 };
