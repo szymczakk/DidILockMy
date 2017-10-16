@@ -7,7 +7,7 @@ const languageDetector = {
   async: true, // flags below detection to be async
   detect: (callback) => { return /*'en'; */ Expo.Util.getCurrentLocaleAsync().then(lng => {
      callback(lng); 
-    })  
+    })
   },
   init: () => {},
   cacheUserLanguage: () => {}
@@ -21,13 +21,9 @@ i18n
 
     resources: {
       en: {
-        home: {
-          title: 'Welcome',
+        main: {
+          title: 'Did you lock your door?',
           introduction: 'This text comes from i18next and is provided in english.'
-        },
-        page2: {
-          title: 'Page 2',
-          introduction: 'This text on page two.'
         },
         common: {
           currentLanguage: 'The current language is "{{lng}}"',
@@ -36,6 +32,15 @@ i18n
             toggleToEnglish: 'English',
             goToPage2: 'Open page 2'
           }
+        }
+      },
+      pl_PL: {
+        main:{
+          title: 'Zamnkąłeś drzwi ?',
+          introduction: 'Ten text jest po polsku!!'
+        },
+        common: {
+          currentLanguage: 'Aktualnym językiem jest "{{lng}}"'
         }
       }
     },
@@ -52,6 +57,9 @@ i18n
 
     interpolation: {
       escapeValue: false, // not needed for react as it does escape per default to prevent xss!
+    },
+    react:{
+      wait: true
     }
   });
 
