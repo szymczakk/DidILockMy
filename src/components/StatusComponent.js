@@ -1,5 +1,22 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import PropTypes from 'prop-types';
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontSize: 40,
+    fontWeight: 'bold'
+  },
+
+  openedText: {
+    color: 'red'
+  },
+
+  closedText: {
+    color: 'green'
+  }
+});
+
 
 export default class StatusComponent extends React.Component{
   constructor(props){
@@ -27,19 +44,9 @@ export default class StatusComponent extends React.Component{
       </View>
     );
   };
-}
+};
 
-const styles = StyleSheet.create({
-  baseText: {
-    fontSize: 40,
-    fontWeight: 'bold'
-  },
-
-  openedText: {
-    color: 'red'
-  },
-
-  closedText: {
-    color: 'green'
-  }
-});
+StatusComponent.propTypes = {
+  doorLocked: PropTypes.bool.isRequired,
+  onError: PropTypes.func
+};

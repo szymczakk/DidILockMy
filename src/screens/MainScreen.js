@@ -1,13 +1,22 @@
 import React from 'react';
-import { Text, Button, View } from "react-native";
+import { Alert, Text, Button, View, StyleSheet } from "react-native";
 
 import LockButtonComponent from 'components/LockButtonComponent';
 import StatusComponent from 'components/StatusComponent';
 
+import i18n from 'util/i18n';
 import DoorLockStateRepository from 'util/doorLockStateRepository';
 
-export default class HomeScreen extends React.Component{
-  repository = null;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: "center"
+  }
+});
+
+export default class MainScreen extends React.Component{
+  doorLockStateRepo = null;
 
   constructor(props){
     super(props);
@@ -17,19 +26,25 @@ export default class HomeScreen extends React.Component{
     };
 
     doorLockStateRepo = new DoorLockStateRepository();
-  }
+  };
   
   componentWillMount(){
     doorLockStateRepo.getLockState().then( (value) => {
       if(value == null){
         value = false;
       }
+      
       value = value == 'true'? true: false;
+      
       this.setState({
         doorLocked: value
       });
+    }).catch(this.handleError);
+  };
 
-    });
+  handleError = (e) => {
+    console.log(e);
+    Alert.alert(e.message);
   };
 
   doorLockChange = () =>{
@@ -39,17 +54,15 @@ export default class HomeScreen extends React.Component{
       this.setState({
         doorLocked: lockStatus
       });
-    }).catch((e) =>{
-      console.error(e);
-    });
+    }).catch(this.handleError);
   };
 
   render(){
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={styles.container}>
         <StatusComponent doorLocked={this.state.doorLocked}/>
-        <LockButtonComponent doorLockedChange={this.doorLockChange}/>
+        <LockButtonComponent doorLockChange={this.doorLockChange} isLocked={this.state.doorLocked}/>
       </View>
     );
   };

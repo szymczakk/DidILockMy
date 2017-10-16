@@ -5,7 +5,7 @@ class BaseRepository{
 
   constructor(){}
   
-  getBaseKey(){
+  get baseKey(){
     return this.baseRepoKeyPrefix;
   };
 
@@ -23,7 +23,7 @@ export default class DoorLockStateRepository extends BaseRepository{
 
   constructor(){
     super();
-    this.key = super.getBaseKey() + "DoorLockState";
+    this.key = super.baseKey + "DoorLockState";
   }
   
   async getLockState(){
