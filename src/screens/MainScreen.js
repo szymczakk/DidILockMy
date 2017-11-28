@@ -1,10 +1,12 @@
 import React from 'react';
 import { Alert, Text, Button, View, StyleSheet } from "react-native";
+import PropTypes from 'prop-types';
+import { NavigationActions } from 'react-navigation';
 
-import LockButtonComponent from 'components/LockButtonComponent';
-import StatusComponent from 'components/StatusComponent';
+import LockButtonComponent from 'components/lockButton/LockButtonComponent';
+import StatusComponent from 'components/status/StatusComponent';
 
-import DoorLockStateRepository from 'util/doorLockStateRepository';
+import Repository from 'util/repository';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,22 +16,17 @@ const styles = StyleSheet.create({
   }
 });
 
-@translate(['main', 'common'])
 export default class MainScreen extends React.Component{
-  doorLockStateRepo = null;
-
   constructor(props){
     super(props);
 
     this.state = {
       doorLocked: false
     };
-
-    doorLockStateRepo = new DoorLockStateRepository();
   };
   
   componentWillMount(){
-    doorLockStateRepo.getLockState().then( (value) => {
+    Repository.getItem("doorLockState").then((value) => {
       if(value == null){
         value = false;
       }
@@ -43,14 +40,13 @@ export default class MainScreen extends React.Component{
   };
 
   handleError = (e) => {
-    console.log(e);
     Alert.alert(e.message);
   };
 
   doorLockChange = () =>{
     const lockStatus = !this.state.doorLocked;
     
-    doorLockStateRepo.setLockState(lockStatus).then(() =>{
+    Repository.setItem("doorLockState", lockStatus).then(() =>{
       this.setState({
         doorLocked: lockStatus
       });
@@ -58,15 +54,16 @@ export default class MainScreen extends React.Component{
   };
 
   render(){
-    const { navigate } = this.props.navigation;
-    const { t } = this.props.screenProps;
-    console.log(this.props);
     return (
       <View style={styles.container}>
-        <StatusComponent doorLocked={this.state.doorLocked}/>
-        <LockButtonComponent doorLockChange={this.doorLockChange} isLocked={this.state.doorLocked}/>
-        <Text>{t('main:introduction')}</Text>
+        <StatusComponent doorLocked={this.state.doorLocked} {...this.props}/>
+        <LockButtonComponent doorLockChange={this.doorLockChange} isLocked={this.state.doorLocked}    {...this.props} />
       </View>
     );
   };
 };
+
+MainScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  screenProps: PropTypes.object.isRequired
+}
