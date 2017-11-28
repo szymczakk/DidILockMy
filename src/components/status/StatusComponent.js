@@ -17,20 +17,20 @@ const styles = StyleSheet.create({
   }
 });
 
-
 export default class StatusComponent extends React.Component{
   constructor(props){
     super(props);
   };
 
-  _renderDoorWarningText = () =>{
+  renderDoorWarningText = () =>{
+    const { t } = this.props.screenProps;
     if(this.props.doorLocked){
       return(
-        <Text style={styles.closedText}>Door closed :)</Text>
+        <Text style={styles.closedText}>{t('components:status:doorClosed')}</Text>
       )
     }else {
       return(
-        <Text style={styles.openedText}>Door opened!!</Text>
+        <Text style={styles.openedText}>{t('components:status:doorOpened')}</Text>
       )
     }
   }
@@ -39,7 +39,7 @@ export default class StatusComponent extends React.Component{
     return(
       <View>
         <Text style={styles.baseText}>
-          {this._renderDoorWarningText()}
+          {this.renderDoorWarningText()}
         </Text>
       </View>
     );
@@ -48,5 +48,6 @@ export default class StatusComponent extends React.Component{
 
 StatusComponent.propTypes = {
   doorLocked: PropTypes.bool.isRequired,
-  onError: PropTypes.func
+  onError: PropTypes.func,
+  screenProps: PropTypes.object.isRequired
 };

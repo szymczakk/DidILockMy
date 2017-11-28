@@ -6,10 +6,6 @@ const styles = StyleSheet.create({
   
 });
 
-function getTitleForButton(isLocked){
-  return isLocked ? "Unlock the door" : "Lock the door";
-};
-
 export default class LockButtonComponent extends React.Component{
   constructor(props){
     super(props);
@@ -19,11 +15,16 @@ export default class LockButtonComponent extends React.Component{
     this.props.doorLockChange();
   };
 
+  getTitleForButton = (isLocked) => {
+    const {t} = this.props.screenProps;
+    return isLocked ? t("components:lockButton:unlockTheDoor") : t("components:lockButton:lockTheDoor");
+  }
+
   render(){
     return (
       <View>
         <Button onPress={this.handleButtonClick}
-          title={getTitleForButton(this.props.isLocked)}/>
+          title={this.getTitleForButton(this.props.isLocked)}/>
       </View>
     );
   }
@@ -32,5 +33,6 @@ export default class LockButtonComponent extends React.Component{
 LockButtonComponent.propTypes = {
   doorLockChange: PropTypes.func.isRequired,
   isLocked: PropTypes.bool.isRequired,
-  onError: PropTypes.func
+  onError: PropTypes.func,
+  screenProps: PropTypes.object.isRequired
 };
