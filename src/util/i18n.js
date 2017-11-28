@@ -2,6 +2,9 @@ import i18n from 'i18next';
 import { reactI18nextModule } from 'react-i18next';
 import Expo from 'expo';
 
+import plLangFile from 'util/lang/pl';
+import enLangFile from 'util/lang/en';
+
 const languageDetector = {
   type: 'languageDetector',
   async: true, // flags below detection to be async
@@ -20,29 +23,8 @@ i18n
     fallbackLng: 'en',
 
     resources: {
-      en: {
-        main: {
-          title: 'Did you lock your door?',
-          introduction: 'This text comes from i18next and is provided in english.'
-        },
-        common: {
-          currentLanguage: 'The current language is "{{lng}}"',
-          actions: {
-            toggleToGerman: 'Deutsch',
-            toggleToEnglish: 'English',
-            goToPage2: 'Open page 2'
-          }
-        }
-      },
-      pl_PL: {
-        main:{
-          title: 'Zamnkąłeś drzwi ?',
-          introduction: 'Ten text jest po polsku!!'
-        },
-        common: {
-          currentLanguage: 'Aktualnym językiem jest "{{lng}}"'
-        }
-      }
+      en: enLangFile,
+      pl_PL: plLangFile
     },
 
     // have a common namespace used around the full app
