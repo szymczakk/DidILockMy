@@ -4,7 +4,13 @@ import { StackNavigator } from 'react-navigation';
 import { translate } from 'react-i18next';
 
 import i18n from 'util/i18n';
+
 import MainScreen from 'screens/MainScreen';
+import ToSScreen from 'screens/ToSScreen';
+import SettingsScreen from 'screens/SettingsScreen';
+import SplashScreen from 'screens/SplashScreen';
+
+import SettingsButtonComponent from 'components/settingButton/SettingsButtonComponent';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,23 +21,49 @@ const styles = StyleSheet.create({
 
 const AppNavigation = StackNavigator(
   {
-    Main: { 
-      screen: MainScreen,
-      // navigationOptions:({navigation}) => ({
-      //   title: "Did you lock your door?"
-      // })
+    Splash:{
+      screen: props => <SplashScreen {...props} />,
+      navigationOptions: ({navigation, screenProps}) => ({
+        headerTitle: null,
+        headerLeft: null,
+        headerRight: null
+      })
     },
+    ToS: {
+      screen: props => <ToSScreen {...props}/>,
+      navigationOptions: ({navigation, screenProps}) => ({
+        headerTitle: screenProps.t("screens:tos:screenTitle"),
+        headerRight: null,
+        headerLeft: null
+      })
+    },
+    Main: { 
+      screen: props => <MainScreen {...props}/>,
+      navigationOptions:({navigation, screenProps}) => ({
+        headerTitle: screenProps.t("screens:main:screenTitle"),
+        headerLeft: null
+      })
+    },
+    Settings: {
+      screen: props => <SettingsScreen {...props} />,
+      navigationOptions: ({navigation, screenProps}) => ({
+        headerTitle: screenProps.t("screens:settings:screenTitle"),
+        headerRight: null
+      })
+    }
   },
   {
-    navigationOptions: {
+    navigationOptions: ({navigation}) => ({
       gesturesEnabled: false,  
-      headerRight: <Button title="Info" />,
-    }
-  }
+      headerRight: <SettingsButtonComponent navigation={{...navigation}} screenProps={{t: i18n.getFixedT()}}/>,
+      headerTitleAllowFontScaling: false
+    }),
+    initialRouteName: "Splash"
+  },
 );
 
 const WrapNavigation = () => {
-  return <AppNavigation  screenProps={{ t: i18n.getFixedT() }}/>;
+  return <AppNavigation screenProps={{t: i18n.getFixedT()}}/>;
 }
 
 const ReloadAppOnLanguageChange = translate('common', {
