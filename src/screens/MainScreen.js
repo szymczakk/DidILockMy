@@ -31,8 +31,6 @@ export default class MainScreen extends React.Component{
         value = false;
       }
       
-      value = value == 'true'? true: false;
-      
       this.setState({
         doorLocked: value
       });
