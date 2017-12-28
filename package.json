@@ -10,7 +10,7 @@
     "i18next": "^10.0.1",
     "prop-types": "^15.6.0",
     "react": "16.0.0-alpha.12",
-    "react-i18next": "^6.0.6",
+    "react-i18next": "^7.3.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-20.0.0.tar.gz",
     "react-navigation": "^1.0.0-beta.11"
   },
