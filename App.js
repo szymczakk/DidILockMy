@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { translate } from 'react-i18next';
+import Settings from 'util/settings.json'
 
 import i18n from 'util/i18n';
 
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
 const AppNavigation = StackNavigator(
   {
     Splash:{
-      screen: props => <SplashScreen {...props} />,
+      screen: props => <SplashScreen {...props} {...Settings}/>,
       navigationOptions: ({navigation, screenProps}) => ({
         headerTitle: null,
         headerLeft: null,
