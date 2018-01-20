@@ -22,7 +22,7 @@ export default class SplashScreen extends React.Component{
     this.getInitialRoute().then(val => {
       setTimeout(() => {
         this.props.navigation.navigate(val);
-      }, 1500);
+      }, parseFloat(this.props.splashScreenTimeout));
     });
   };
 

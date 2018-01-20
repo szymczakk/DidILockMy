@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
+import Repository from 'util/repository';
+
 const styles = StyleSheet.create({
   
 });
@@ -9,13 +11,17 @@ const styles = StyleSheet.create({
 export default class SettingsScreen extends React.Component{
   constructor(props){
     super(props);
-  }
+  };
+  
+  resetTos = () => {
+    Repository.setItem("TOS:ACCEPTED", null);
+  };
 
   render(){
     const {t} = this.props.screenProps;
     return (
       <View style={ styles.container }>
-        <Text>Settings</Text>
+        <Button onPress={this.resetTos} title="Reset props" />
       </View>
     );
   }
