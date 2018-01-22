@@ -6,10 +6,10 @@ branches:
     - master
 before_install:
   - chmod a+x ./scripts/travis-build.sh
-  - chmod a+x ./scripts/run-tests.sh
+  - chmod a+x ./scripts/run-test.sh
   - chmod a+x ./scripts/after-build.sh
 script:
-  - ./scripts/run-tests.sh
+  - ./scripts/run-test.sh
   - ./scripts/travis-build.sh
 after_success:
   - ./scripts/after-build.sh
