@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "didilockmydoorpure",
-    "description": "An empty new project",
-    "slug": "didilockmydoorpure",
+    "name": "DidILockMy",
+    "description": "DidILockMy is an app to help you remember...",
+    "slug": "DidILockMy",
     "privacy": "public",
-    "sdkVersion": "20.0.0",
-    "version": "1.0.0",
+    "sdkVersion": "27.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
     "icon": "./assets/icons/app-icon.png",
