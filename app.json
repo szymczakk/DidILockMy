@@ -2,7 +2,7 @@
   "expo": {
     "name": "DidILockMy",
     "description": "DidILockMy is an app to help you remember...",
-    "slug": "This app helps you remember...",
+    "slug": "DidILockMy",
     "privacy": "public",
     "sdkVersion": "27.0.0",
     "version": "0.0.1",
