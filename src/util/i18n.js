@@ -8,7 +8,7 @@ import enLangFile from 'util/lang/en';
 const languageDetector = {
   type: 'languageDetector',
   async: true, // flags below detection to be async
-  detect: (callback) => { return /*'en'; */ Expo.Util.getCurrentLocaleAsync().then(lng => {
+  detect: (callback) => { return /*'en'; */ Expo.DangerZone.Localization.getCurrentLocaleAsync().then(lng => {
      callback(lng); 
     })
   },
