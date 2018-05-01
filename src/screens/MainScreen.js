@@ -55,7 +55,7 @@ export default class MainScreen extends React.Component{
     return (
       <View style={styles.container}>
         <StatusComponent doorLocked={this.state.doorLocked} {...this.props}/>
-        <LockButtonComponent doorLockChange={this.doorLockChange} isLocked={this.state.doorLocked}    {...this.props} />
+        <LockButtonComponent doorLockChange={this.doorLockChange} isLocked={this.state.doorLocked} {...this.props} />
       </View>
     );
   };
