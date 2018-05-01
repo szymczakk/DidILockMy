@@ -10,7 +10,10 @@ export default {
       yes: "Yes, I accept the ToS"
     },
     settings:{
-      screenTitle: "Setting_En_Title"
+      screenTitle: "Setting_En_Title",
+      aboutUsButton: "About Us",
+      howToUseButton: "How To Use",
+      rateUsButton: "Rate Us"
     }
   },
   components:{
