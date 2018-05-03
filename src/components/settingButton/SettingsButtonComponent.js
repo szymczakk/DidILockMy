@@ -2,6 +2,8 @@ import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import PropTypes from 'prop-types';
 
+import Screens from 'screens/Screens'
+
 const styles = StyleSheet.create({
   settingImage:{
     height: 30,
@@ -19,7 +21,7 @@ export default class SettingsButtonComponent extends React.Component{
   };
 
   onPressButton = () => {
-    this.props.navigation.navigate('Settings');
+    this.props.navigation.navigate(Screens.SettingsScreen);
   };
 
   render(){
