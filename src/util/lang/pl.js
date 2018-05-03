@@ -10,7 +10,10 @@ export default {
       yes: "Tak, akceptuję postanowienia regulaminu"
     },
     settings:{
-      screenTitle: "Ustawienia"
+      screenTitle: "Ustawienia",
+      aboutUsButton: "O Nas",
+      howToUseButton: "Jak Używać",
+      rateUsButton: "Oceń Nas"
     }
   },
   components:{
