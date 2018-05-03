@@ -3,6 +3,7 @@ import { Button, View, Text } from "react-native";
 import PropTypes from 'prop-types';
 
 import Repository from 'util/repository';
+import Screens from './Screens';
 
 export default class SplashScreen extends React.Component{
   constructor(props){
@@ -12,9 +13,9 @@ export default class SplashScreen extends React.Component{
   getInitialRoute = () => {
     return Repository.getItem("TOS:ACCEPTED").then((val) => {    
         if(val == true){
-          return "Main";
+          return Screens.MainScreen;
         }
-        return "ToS";
+        return Screens.ToSScreen;
     }); 
   };
 

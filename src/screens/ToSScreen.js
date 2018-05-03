@@ -3,6 +3,7 @@ import { View, CheckBox, Text, StyleSheet, Button, ScrollView, Dimensions } from
 import PropTypes from 'prop-types';
 
 import Repository from 'util/repository';
+import Screens from 'screens/Screens';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,7 +30,7 @@ export default class ToSScreen extends React.Component{
 
   onAcceptTos = () =>{
     Repository.setItem("TOS:ACCEPTED", true).then(() => {
-      this.props.navigation.navigate('Main');
+      this.props.navigation.navigate(Screens.MainScreen);
     });
   };
 
