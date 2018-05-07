@@ -1,3 +1,3 @@
 {
-  automock: false
+  automock: false;
 }

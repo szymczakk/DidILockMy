@@ -1,74 +1,79 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button, StatusBar } from 'react-native';
-import { StackNavigator } from 'react-navigation';
-import { translate } from 'react-i18next';
-import Settings from 'util/settings.json'
+import React from "react";
+import { StyleSheet, Text, View, Button, StatusBar } from "react-native";
+import { StackNavigator } from "react-navigation";
+import { translate } from "react-i18next";
+import Settings from "util/settings.json";
 
-import i18n from 'util/i18n';
+import i18n from "util/i18n";
 
-import MainScreen from 'screens/MainScreen';
-import ToSScreen from 'screens/ToSScreen';
-import SettingsScreen from 'screens/SettingsScreen';
-import SplashScreen from 'screens/SplashScreen';
+import MainScreen from "screens/MainScreen";
+import ToSScreen from "screens/ToSScreen";
+import SettingsScreen from "screens/SettingsScreen";
+import SplashScreen from "screens/SplashScreen";
 
-import SettingsButtonComponent from 'components/settingButton/SettingsButtonComponent';
+import SettingsButtonComponent from "components/settingButton";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#aaa'
+    backgroundColor: "#aaa"
   }
 });
 
 const AppNavigation = StackNavigator(
   {
-    Splash:{
-      screen: props => <SplashScreen {...props} {...Settings}/>,
-      navigationOptions: ({navigation, screenProps}) => ({
+    Splash: {
+      screen: props => <SplashScreen {...props} {...Settings} />,
+      navigationOptions: ({ navigation, screenProps }) => ({
         headerTitle: null,
         headerLeft: null,
         headerRight: null
       })
     },
     ToS: {
-      screen: props => <ToSScreen {...props}/>,
-      navigationOptions: ({navigation, screenProps}) => ({
+      screen: props => <ToSScreen {...props} />,
+      navigationOptions: ({ navigation, screenProps }) => ({
         headerTitle: screenProps.t("screens:tos:screenTitle"),
         headerRight: null,
         headerLeft: null
       })
     },
-    Main: { 
-      screen: props => <MainScreen {...props}/>,
-      navigationOptions:({navigation, screenProps}) => ({
+    Main: {
+      screen: props => <MainScreen {...props} />,
+      navigationOptions: ({ navigation, screenProps }) => ({
         headerTitle: screenProps.t("screens:main:screenTitle"),
         headerLeft: null
       })
     },
     Settings: {
       screen: props => <SettingsScreen {...props} />,
-      navigationOptions: ({navigation, screenProps}) => ({
+      navigationOptions: ({ navigation, screenProps }) => ({
         headerTitle: screenProps.t("screens:settings:screenTitle"),
         headerRight: null
       })
     }
   },
   {
-    navigationOptions: ({navigation}) => ({
-      gesturesEnabled: false,  
-      headerRight: <SettingsButtonComponent navigation={{...navigation}} screenProps={{t: i18n.getFixedT()}}/>,
+    navigationOptions: ({ navigation }) => ({
+      gesturesEnabled: false,
+      headerRight: (
+        <SettingsButtonComponent
+          navigation={{ ...navigation }}
+          screenProps={{ t: i18n.getFixedT() }}
+        />
+      ),
       headerTitleAllowFontScaling: false
     }),
     initialRouteName: "Splash"
-  },
+  }
 );
 
 const WrapNavigation = () => {
-  return <AppNavigation screenProps={{t: i18n.getFixedT()}}/>;
-}
+  return <AppNavigation screenProps={{ t: i18n.getFixedT() }} />;
+};
 
-const ReloadAppOnLanguageChange = translate('common', {
-  bindI18n: 'languageChanged',
+const ReloadAppOnLanguageChange = translate("common", {
+  bindI18n: "languageChanged",
   bindStore: false
 })(WrapNavigation);
 
@@ -81,4 +86,4 @@ export default class App extends React.Component {
       </View>
     );
   }
-};
+}

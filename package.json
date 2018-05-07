@@ -1,7 +1,8 @@
 {
   "name": "didilockmydoor",
   "version": "0.0.1",
-  "description": "React native + Expo app that help people who forget if they closed their door",
+  "description":
+    "React native + Expo app that help people who forget if they closed their door",
   "author": "Szymczakk @ Targetly",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
@@ -11,7 +12,8 @@
     "prop-types": "^15.6.0",
     "react": "16.3.2",
     "react-i18next": "^6.0.6",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
+    "react-native":
+      "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
     "react-navigation": "^1.5.11",
     "react-dom": "^16.3.2"
   },
@@ -25,7 +27,8 @@
   },
   "scripts": {
     "test": "jest",
-    "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
+    "test-debug":
+      "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
   },
   "jest": {
     "preset": "react-native"

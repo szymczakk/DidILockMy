@@ -3,8 +3,11 @@
   "env": {},
   "plugins": [
     "transform-react-jsx-source",
-    ["module-resolver", {
-      "root": ["./src"]
-    }]
+    [
+      "module-resolver",
+      {
+        "root": ["./src"]
+      }
+    ]
   ]
 }
