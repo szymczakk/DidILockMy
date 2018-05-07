@@ -1,32 +1,32 @@
 export default {
-  screens:{
-    main:{
-      screenTitle: 'A ty zamnkąłeś dzisiaj drzwi :> ?',
+  screens: {
+    main: {
+      screenTitle: "A ty zamnkąłeś dzisiaj drzwi :> ?"
     },
-    tos:{
+    tos: {
       screenTitle: "ToS_PL_title",
       title: "ToS",
       doYouAcceptIt: "Czy akceptujesz regulamin?",
       yes: "Tak, akceptuję postanowienia regulaminu"
     },
-    settings:{
+    settings: {
       screenTitle: "Ustawienia",
       aboutUsButton: "O Nas",
       howToUseButton: "Jak Używać",
       rateUsButton: "Oceń Nas"
     }
   },
-  components:{
-    status:{
+  components: {
+    status: {
       doorClosed: "Drzwi zamknięte :)",
       doorOpened: "Drzwi otwarte!!"
     },
-    lockButton:{
+    lockButton: {
       lockTheDoor: "Zamknij drzwi",
       unlockTheDoor: "Otwórz drzwi"
     },
-    settingsButton:{
+    settingsButton: {
       settings: "Ustawienia"
     }
   }
-}
+};

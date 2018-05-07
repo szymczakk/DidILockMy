@@ -1,0 +1,43 @@
+import React from "react";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import PropTypes from "prop-types";
+
+import Screens from "screens/Screens";
+
+const styles = StyleSheet.create({
+  settingImage: {
+    height: 30,
+    width: 30
+  },
+  settingImageContainer: {
+    paddingRight: 15,
+    paddingLeft: 15
+  }
+});
+
+export default class SettingsButtonComponent extends React.Component {
+  static propTypes = {
+    navigation: PropTypes.object.isRequired,
+    screenProps: PropTypes.object.isRequired
+  };
+
+  onPressButton = () => {
+    this.props.navigation.navigate(Screens.SettingsScreen);
+  };
+
+  render() {
+    return (
+      <View>
+        <TouchableOpacity
+          style={styles.settingImageContainer}
+          onPress={this.onPressButton}
+        >
+          <Image
+            source={require("./assets/setting-icon.png")}
+            style={styles.settingImage}
+          />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
