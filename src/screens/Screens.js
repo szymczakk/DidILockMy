@@ -1,6 +1,6 @@
 export default {
-  MainScreen: "Main",
-  SettingsScreen: "Settings",
-  SplashScreen: "Splash",
-  ToSScreen: "ToS"
-};
+  MainScreen: "MainScreen",
+  SettingsScreen: "SettingsScreen",
+  SplashScreen: "SplashScreen",
+  ToSScreen: "ToSScreen",
+}
