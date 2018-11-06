@@ -8,7 +8,8 @@ import Screens from "./Screens";
 export default class SplashScreen extends React.Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
-    screenProps: PropTypes.object.isRequired
+    screenProps: PropTypes.object.isRequired,
+    splashScreenTimeout: PropTypes.number.isRequired
   };
 
   getInitialRoute = () => {

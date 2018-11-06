@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import Screens from 'screens/Screens';
 import SplashScreen from 'screens/SplashScreen';
 import Settings from 'util/settings.json'
@@ -17,4 +17,4 @@ navi[Screens.SplashScreen] =
 }
 
 
-export default StackNavigator(navi);
+export default createStackNavigator(navi);

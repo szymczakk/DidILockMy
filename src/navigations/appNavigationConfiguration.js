@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import Screens from 'screens/Screens';
 import ToSScreen from 'screens/ToSScreen';
 import MainScreen from 'screens/MainScreen';
@@ -30,7 +30,9 @@ const navigationConfiguration = {
     headerRight: <SettingsButtonComponent navigation={{...navigation}} screenProps={{t: i18n.getFixedT()}}/>,
     headerTitleAllowFontScaling: false
   }),
-  initialRouteName: Screens.MainScreen
+  initialRouteName: Screens.MainScreen,
+  headerMode: 'screen',
+  header: { visible:false }
 };
 
-export default StackNavigator(navi, navigationConfiguration);
+export default createStackNavigator(navi, navigationConfiguration);

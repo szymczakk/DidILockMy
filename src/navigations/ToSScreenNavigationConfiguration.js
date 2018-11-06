@@ -1,5 +1,5 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import Screens from 'screens/Screens';
 import ToSScreen from 'screens/ToSScreen';
 
@@ -14,6 +14,6 @@ navi[Screens.ToSScreen] = {
   })
 }
 
-export default StackNavigator(navi);
+export default createStackNavigator(navi);
 
 
