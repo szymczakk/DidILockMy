@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import { reactI18nextModule } from "react-i18next";
-import Expo from "expo";
 
 import plLangFile from "util/lang/pl";
 import enLangFile from "util/lang/en";
@@ -9,11 +8,7 @@ const languageDetector = {
   type: "languageDetector",
   async: true, // flags below detection to be async
   detect: callback => {
-    return /*'en'; */ Expo.DangerZone.Localization.getCurrentLocaleAsync().then(
-      lng => {
-        callback(lng);
-      }
-    );
+    return 'en';
   },
   init: () => {},
   cacheUserLanguage: () => {}
