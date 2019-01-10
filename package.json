@@ -1,7 +1,7 @@
 {
-  "name": "didilockmydoor",
+  "name": "didilockmy",
   "version": "0.0.1",
-  "description": "React native + Expo app that help people who forget if they closed their door",
+  "description": "React native + Expo app that help people who forget if they closed their...",
   "author": "Szymczakk @ Targetly",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
