@@ -26,7 +26,7 @@
     "metro-react-native-babel-preset": "^0.49.0"
   },
   "scripts": {
-    "test": "jest",
+    "test": "node ./node_modules/jest/bin/jest.js",
     "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
   },
   "jest": {
